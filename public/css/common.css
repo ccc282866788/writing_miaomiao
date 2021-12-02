@@ -17,3 +17,7 @@ a{
 .clearfix {
     *zoom: 1; /*IE/7/6*/
 }
+em.keyword{
+    font-style: normal;
+    color: #fb7298;
+}

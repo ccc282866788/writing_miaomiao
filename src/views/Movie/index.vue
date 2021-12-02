@@ -1,10 +1,10 @@
 <template>
   <div id="movie">
     <Header></Header>
-    <div class="content">
+    <div class="nav">
       <div class="movie_menu">
         <router-link to="/movie/city" tag='div' class="cityname">
-          <span>北京</span><i class="iconfont icon-tabxiala"></i>
+          <p class="iconfont icon-tabxiala">{{$store.state.city.city}}</p>
         </router-link>
         <div class="movie_switch">
           <router-link to="/movie/nowplaying" tag="div" class="switch_item">正在上映</router-link>
@@ -14,10 +14,10 @@
           <i class="iconfont icon-search"></i>
         </router-link>
       </div>
-      <keep-alive>
-        <router-view />
-      </keep-alive>
     </div>
+    <keep-alive include="nowplaying">
+      <router-view />
+    </keep-alive>
     <Tabbar></Tabbar>
   </div>
 </template>
@@ -34,16 +34,13 @@ export default {
   }
 }
 </script>
-
 <style scoped>
   #movie{
     display: flex;
     flex-direction: column;
+    height: 100%;
   }
-  .content{
-    flex: 1;
-  }
-  .content .movie_menu{
+  .nav .movie_menu{
     height: 45px;
     width: 100%;
     border-bottom: 1px solid #e6e6e6;
@@ -58,6 +55,11 @@ export default {
     box-sizing: border-box;
     overflow: hidden;
   }
+  .cityname p{
+    display: inline-block;
+    width: 4em;
+    overflow: hidden;
+  }
   .movie_switch{
     display: flex;
     height: 45px;
@@ -70,7 +72,6 @@ export default {
     padding: 0 10px;
     margin: 0 15px;
     box-sizing: border-box;
-
     text-align: center;
     color: #666;
     font-weight: 700;

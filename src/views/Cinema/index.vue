@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="cinema">
     <Header title="喵喵影院"></Header>
     <div class="cinema_menu">
       <div class="city_switch">
@@ -32,6 +32,11 @@ export default {
 </script>
 
 <style scoped>
+  #cinema{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
   .cinema_menu{
     width: 100%;
     height: 45px;

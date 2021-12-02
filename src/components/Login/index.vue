@@ -46,12 +46,11 @@ export default {
       if (this.username === '' || this.password === '') {
         alert('请输入账号和密码！')
       } else {
-        window.localStorage.setItem('username', this.username)
-        window.localStorage.setItem('psw', this.password)
+        window.localStorage.setItem('username', JSON.stringify(this.username))
       }
     },
     show: function () {
-      this.zhanghao = window.localStorage.getItem('username')
+      this.zhanghao = JSON.parse(window.localStorage.getItem('username'))
       if (this.zhanghao === null) {
         return
       }
@@ -75,7 +74,7 @@ export default {
   .search_input input{
     border: none;
     width: 100%;
-    height: 30px;
+    height: 45px;
     background-color: #fff;
     text-indent: 10px;
     border-radius: 5px;

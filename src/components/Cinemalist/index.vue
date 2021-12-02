@@ -129,7 +129,8 @@ export default {
 </script>
 
 <style scoped>
-  .cinema_list ul{ padding:20px;}
+  .cinema_list{ height: 100%; overflow: auto;}
+  .cinema_list ul{ padding:15px 20px;}
   .cinema_list li{
     border-bottom:1px solid #e6e6e6;
     margin-bottom: 20px;}

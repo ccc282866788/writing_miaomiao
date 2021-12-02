@@ -8,6 +8,7 @@ export default {
       component: () => import('@/components/City')
     },
     {
+      name: 'nowplay',
       path: 'nowplaying',
       component: () => import('@/components/Nowplaying')
     },
@@ -17,8 +18,20 @@ export default {
     },
     {
       path: 'search',
-      component: () => import('@/components/Search')
+      component: () => import('@/components/Search'),
+      children: [
+        {
+          name: 'searchDefault',
+          path: 'default',
+          component: () => import('@/components/SearchDefault')
+        },
+        {
+          name: 'searchResult',
+          path: 'type',
+          component: () => import('@/components/SearchResult')
+        }
+      ],
+      redirect: '/movie/search/default'
     }
   ]
-
 }

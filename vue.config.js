@@ -1,23 +1,20 @@
 module.exports= {
-
   devServer: {
-    open: true,
-    //本地真机测试
-    // host: "localhost",
-    // port: 8900,
-    https: false,
-    disableHostCheck: true,
     proxy: {
-    '/cross/': {
-    target: 'http://localhost:8888',
-    ws: true,
-    secure: false,
-    pathRewrite: {
-    '^/cross/': '/'
-    },
-    changeOrigin: true,
+      '/x/': {
+      target: 'https://api.bilibili.com',
+      changeOrigin: true,
+      headers: {
+        referer: 'https://www.bilibili.com'
+        }
+      },
+      '/main/': {
+        target: 'http://s.search.bilibili.com',
+        changeOrigin: true,
+        headers: {
+        referer: 'https://www.bilibili.com'
+        }
+      }
     }
-    }
-    },
-  productionSourceMap: false
+  }
 }
